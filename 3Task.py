@@ -5,15 +5,15 @@ def int_to_hex_string(integer):
     return hex(integer)[2:]
 
 def perform_operation(operation, num1, num2):
-    if operation == "ADD":
-        result = num1 + num2
-    elif operation == "SUB":
-        result = num1 - num2
-    elif operation == "MUL":
-        result = num1 * num2
+    operations = {
+        "ADD": num1 + num2,
+        "SUB": num1 - num2,
+        "MUL": num1 * num2
+    }
+    if operation in operations:
+        return operations[operation]
     else:
         raise ValueError("Unsupported operation")
-    return result
 
 hex_string1 = "36f028580bb02cc8272a9a020f4200e346e276ae664e45ee80745574e2f5ab80"
 operation1 = "ADD"
@@ -49,4 +49,4 @@ num6 = hex_string_to_int(hex_string6)
 result3 = perform_operation(operation3, num5, num6)
 result_hex3 = int_to_hex_string(result3)
 
-print(f"Результат операціх {operation3}: {result_hex3}")
+print(f"Результат операції {operation3}: {result_hex3}")
